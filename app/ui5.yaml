@@ -1,0 +1,28 @@
+specVersion: "2.0"
+metadata:
+  name: tufa.autoui
+type: application
+framework:
+  name: SAPUI5
+  version: "1.107.0"
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ui.unified
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+  - name: ui5-middleware-livereload
+    afterMiddleware: compression
+    configuration:
+      debug: true
+      extraExts: "xml,json,properties"
+      port: 35729
+      path: "webapp"
+  - name: ui5-middleware-simpleproxy
+    afterMiddleware: compression
+    mountPath: "/public"
+    configuration:
+      baseUri: "http://localhost:4004/public"
+      excludePatterns: 
+       - "/local/**"

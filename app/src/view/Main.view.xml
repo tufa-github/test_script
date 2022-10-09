@@ -1,0 +1,113 @@
+<mvc:View controllerName="tufa.autoui.controller.Main" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+    <Shell>
+        <App>
+            <Page title="The pets and their owners">
+                <!-->
+                <Link text="Link for UI5 Dokumentation" width="100%" href="https://sdk.openui5.org/api/sap.m.Link#controlProperties" />
+            -->
+
+                <VBox>
+                    <!-->
+                    <HBox>
+                        <items>
+                            <Input value="{myInputModel>/recipient/name}" fieldWidth="30%" description="Hello {myInputModel>/recipient/name}" submit="onSubmit" valueLiveUpdate="true" />
+                        </items>
+                    </HBox>
+
+                    <HBox>
+                        <items>
+                            <Button text="Start" type="Accept" icon="sap-icon://cursor-arrow" press="onButtonPress" />
+                        </items>
+
+                        <VBox>
+                            <items>
+                                <TextArea value="{myTextAreaInputModel>/recipient/name}" maxLength="2000" growingMaxLines="1" />
+                            </items>
+                        </VBox>
+                    </HBox>
+
+                -->
+
+                    <items>
+                        <Text text="" />
+                    </items>
+
+                    <HBox>
+                        <VBox class="sapUiMediumMargin">
+                            <Label text="Name" />
+                            <Input value="{petsListInputModel>/recipient/name}" width="200px" />
+                            <Label text="Species" />
+                            <Input value="{petsListInputModel>/recipient/species}" width="200px" />
+                            <!-->
+                            <Button text="Add" type="Default" icon="sap-icon://add" press="pressAddInList" />
+                            -->
+                            
+                            <Button 
+                                text="Add in Pets List" 
+                                width="200px" 
+                                ariaHasPopup="Dialog" 
+                                press=".addInPetsDialogPress"/>
+                                
+                        </VBox>
+
+                        <VBox class="sapUiMediumMargin">
+                            <Label text="Firstname" />
+                            <Input value="{personListInputModel>/recipient/firstname}" width="200px" />
+                            <Label text="Lastname" />
+                            <Input value="{personListInputModel>/recipient/lastname}" width="200px" />
+                            <Label text="Age" />
+                            <Input value="{personListInputModel>/recipient/age}" width="200px" />
+                            <Button text="add" type="Default" icon="sap-icon://add" press="pressAddInPersonList" />
+                        </VBox>
+                    </HBox>
+
+                    <IconTabBar id="idIconTabBarStretchContent" stretchContentHeight="true" backgroundDesign="Transparent" applyContentPadding="false" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+                        <items>
+                            <IconTabFilter text="Person" key="person">
+                                <List growing="true" growingThreshold="6" items="{path:'/Persons'}" id="personList">
+                                    <headerToolbar>
+                                        <OverflowToolbar width="100%">
+                                            <Title text="The owner of the pets" />
+                                            <ToolbarSpacer />
+                                            <SearchField width="200px" placeholder="SearchPerson" search="mySearchPerson" />
+                                        </OverflowToolbar>
+                                    </headerToolbar>
+                                    <items>
+                                        <StandardListItem title="{age}" description="{firstname} {lastname}" />
+                                    </items>
+                                </List>
+                            </IconTabFilter>
+                            <IconTabFilter text="Pets" key="pets">
+                                <List growing="true" growingThreshold="6" items="{path: '/Pets'}" id="petsList">
+                                    <headerToolbar>
+                                        <OverflowToolbar width="100%">
+                                            <Title text="Our pets" />
+                                            <ToolbarSpacer />
+                                            <SearchField width="200px" placeholder="SearchPets" search="mySearch" />
+                                        </OverflowToolbar>
+                                    </headerToolbar>
+                                    <items>
+                                        <StandardListItem title="{name}" description="{species}" />
+                                    </items>
+                                </List>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+
+                    <!-->
+                    <items>
+                        <CheckBox />
+                    </items>
+
+                    <VBox items="{/Pets}">
+                        <items>
+                            <Link text="{name}" />
+                        </items>
+                    </VBox>
+
+-->
+                </VBox>
+            </Page>
+        </App>
+    </Shell>
+</mvc:View>

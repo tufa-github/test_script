@@ -1,0 +1,15 @@
+{
+  "generator-ui5-ts-app": {
+    "application": "autoui",
+    "namespace": "tufa",
+    "framework": "SAPUI5",
+    "frameworkVersion": "1.107.0",
+    "author": "zheng",
+    "initrepo": true,
+    "tstypes": "@sapui5/ts-types-esm",
+    "tstypesVersion": "1.107.0",
+    "appId": "tufa.autoui",
+    "appURI": "tufa/autoui",
+    "setupCompleted": true
+  }
+}
