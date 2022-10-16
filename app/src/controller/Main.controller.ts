@@ -19,7 +19,7 @@ import Fragment from "sap/ui/core/Fragment";
  */
 export default class Main extends BaseController {
   private formatter = formatter;
-  private addDialog: Dialog;
+  private personDialog: Dialog;
   private petsDialog: Dialog;
 
   public sayHello(): void {
@@ -107,33 +107,6 @@ export default class Main extends BaseController {
     this.closeDialog();
   }
 
-  /*public addInPetsDialogPress() {
-    var petsName = this.getView()
-      .getModel("petsListInputModel")
-      .getProperty("/recipient/name");
-    var petsSpecies = this.getView()
-      .getModel("petsListInputModel")
-      .getProperty("/recipient/species");
-
-    var oDialog = new Dialog({
-      title: "Add in Petslist",
-      icon: "sap-icon://add",
-      content: new Text({
-        text: " Name: " + petsName + "\n " + " Species: " + petsSpecies,
-      }),
-      beginButton: new Button({
-        type: "Emphasized",
-        text: "Add",
-        press: function (this: any) {
-          this.pressAddInList();
-          oDialog.close();
-        }.bind(this),
-      }),
-    });
-
-    oDialog.open();
-  }*/
-
   public async addInPersonsDialogPress() {
     var firstname = this.getView()
       .getModel("personListInputModel")
@@ -145,39 +118,32 @@ export default class Main extends BaseController {
       .getModel("personListInputModel")
       .getProperty("/recipient/age");
 
-    if (!this.addDialog) {
-      this.addDialog = <Dialog>await Fragment.load({
+    if (!this.personDialog) {
+      this.personDialog = <Dialog>await Fragment.load({
         name: "tufa.autoui.view.createPersonDialog",
         controller: this,
       });
-      this.getView().addDependent(this.addDialog);
+      this.getView().addDependent(this.personDialog);
     }
-    this.addDialog.open();
+    this.personDialog.open();
   }
 
 
   public async addInPetsDialogPress() {
-    /*var petsName = this.getView()
-      .getModel("petsListInputModel")
-      .getProperty("/recipient/name");
-    var petsSpecies = this.getView()
-      .getModel("petsListInputModel")
-      .getProperty("/recipient/species");*/
+    if (!this.petsDialog) {
+    this.petsDialog = <Dialog>await Fragment.load({
+      name: "tufa.autoui.view.createPetsDialog",
+      controller: this,
+    });
 
-	if (!this.petsDialog) {
-	this.petsDialog = <Dialog>await Fragment.load({
-		name: "tufa.autoui.view.createPetsDialog",
-		controller: this,
-	});
-
-	this.getView().addDependent(this.petsDialog);
-	}
-	this.petsDialog.open();
+    this.getView().addDependent(this.petsDialog);
+    }
+    this.petsDialog.open();
 
   }
 
   public closeDialog() {
-    this.addDialog.close();
+    this.personDialog.close();
   }
 
   public closePetsDialog() {

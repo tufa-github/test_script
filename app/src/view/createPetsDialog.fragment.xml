@@ -13,7 +13,7 @@
             <Button text="Cancel" ariaHasPopup="Dialog" press="closePetsDialog" />
         </beginButton>
         <endButton>
-            <Button text="Add in Pets List"  ariaHasPopup="Dialog" press="pressAddInPetsList" />
+            <Button text="Add in Pets List" ariaHasPopup="Dialog" press="pressAddInPetsList" />
         </endButton>
     </Dialog>
 </core:FragmentDefinition>

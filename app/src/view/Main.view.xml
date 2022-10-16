@@ -87,19 +87,7 @@
                             </IconTabFilter>
                         </items>
                     </IconTabBar>
-
-                    <!-->
-                    <items>
-                        <CheckBox />
-                    </items>
-
-                    <VBox items="{/Pets}">
-                        <items>
-                            <Link text="{name}" />
-                        </items>
-                    </VBox>
-
--->
+                    
                 </VBox>
             </Page>
         </App>
