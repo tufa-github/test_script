@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="myPersonView" title="" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" initialFocus="email">
+        <content>
+            <VBox class="sapUiMediumMargin">
+                <Label text="Firstname" />
+                <Input value="{personListInputModel>/recipient/firstname}" width="200px" />
+                <Label text="Lastname" />
+                <Input value="{personListInputModel>/recipient/lastname}" width="200px" />
+                <Label text="Age" />
+                <Input value="{personListInputModel>/recipient/age}" width="200px" />
+            </VBox>
+        </content>
+        <beginButton>
+            <Button text="Cancel" ariaHasPopup="Dialog" press="closeDialog" />
+        </beginButton>
+        <endButton>
+            <Button text="Add in Persons List"  ariaHasPopup="Dialog" press="pressAddInPersonList" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

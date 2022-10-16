@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="myPetsView" title="" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" initialFocus="email">
+        <content>
+            <VBox class="sapUiMediumMargin">
+                <Label text="Name" />
+                <Input value="{petsListInputModel>/recipient/name}" width="200px" />
+                <Label text="Species" />
+                <Input value="{petsListInputModel>/recipient/species}" width="200px" />
+                
+            </VBox>
+        </content>
+        <beginButton>
+            <Button text="Cancel" ariaHasPopup="Dialog" press="closePetsDialog" />
+        </beginButton>
+        <endButton>
+            <Button text="Add in Pets List"  ariaHasPopup="Dialog" press="pressAddInPetsList" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

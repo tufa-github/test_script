@@ -32,43 +32,36 @@
                         <Text text="" />
                     </items>
 
+                    <!-->
                     <HBox>
                         <VBox class="sapUiMediumMargin">
                             <Label text="Name" />
                             <Input value="{petsListInputModel>/recipient/name}" width="200px" />
                             <Label text="Species" />
                             <Input value="{petsListInputModel>/recipient/species}" width="200px" />
-                            <!-->
+                            
                             <Button text="Add" type="Default" icon="sap-icon://add" press="pressAddInList" />
-                            -->
+                            
                             
                             <Button 
                                 text="Add in Pets List" 
                                 width="200px" 
                                 ariaHasPopup="Dialog" 
-                                press=".addInPetsDialogPress"/>
-                                
+                                press="addInPetsDialogPress"/>
+                                  
                         </VBox>
 
-                        <VBox class="sapUiMediumMargin">
-                            <Label text="Firstname" />
-                            <Input value="{personListInputModel>/recipient/firstname}" width="200px" />
-                            <Label text="Lastname" />
-                            <Input value="{personListInputModel>/recipient/lastname}" width="200px" />
-                            <Label text="Age" />
-                            <Input value="{personListInputModel>/recipient/age}" width="200px" />
-                            <Button text="add" type="Default" icon="sap-icon://add" press="pressAddInPersonList" />
-                        </VBox>
                     </HBox>
-
+<!-->
                     <IconTabBar id="idIconTabBarStretchContent" stretchContentHeight="true" backgroundDesign="Transparent" applyContentPadding="false" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
                         <items>
-                            <IconTabFilter text="Person" key="person">
-                                <List growing="true" growingThreshold="6" items="{path:'/Persons'}" id="personList">
+                            <IconTabFilter text="Persons" key="person">
+                                <List mode="Delete" delete="onDeletePress" growing="true" growingThreshold="6" items="{path:'/Persons'}" id="personList">
                                     <headerToolbar>
                                         <OverflowToolbar width="100%">
                                             <Title text="The owner of the pets" />
                                             <ToolbarSpacer />
+                                            <Button icon="sap-icon://add" ariaHasPopup="Dialog" press="addInPersonsDialogPress" />
                                             <SearchField width="200px" placeholder="SearchPerson" search="mySearchPerson" />
                                         </OverflowToolbar>
                                     </headerToolbar>
@@ -78,11 +71,12 @@
                                 </List>
                             </IconTabFilter>
                             <IconTabFilter text="Pets" key="pets">
-                                <List growing="true" growingThreshold="6" items="{path: '/Pets'}" id="petsList">
+                                <List mode="Delete" delete="onDeletePress" growing="true" growingThreshold="6" items="{path: '/Pets'}" id="petsList">
                                     <headerToolbar>
                                         <OverflowToolbar width="100%">
                                             <Title text="Our pets" />
                                             <ToolbarSpacer />
+                                            <Button icon="sap-icon://add" ariaHasPopup="Dialog" press="addInPetsDialogPress" />
                                             <SearchField width="200px" placeholder="SearchPets" search="mySearch" />
                                         </OverflowToolbar>
                                     </headerToolbar>
