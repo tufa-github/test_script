@@ -1,0 +1,23 @@
+<mvc:View controllerName="tufa.autoui.controller.Detail" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form">
+    <Page title="{age}" showNavButton="true" navButtonPress="onPersonDetailNavBack">
+        <Panel >
+            <content>
+                <f:SimpleForm
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+                    columnsL="1" columnsM="1">
+                    <f:content>
+                        <Label text="First Name"/>
+                        <Text text="{firstname}"/>
+                        <Label text="Last Name"/>
+                        <Text text="{lastname}"/>
+                        <Label text="age"/>
+                        <Text text="{age}"/>
+                    </f:content>
+                </f:SimpleForm>
+            </content>
+        </Panel>
+        <Button text="Edit" press="onEdit"/>
+    </Page>
+</mvc:View>

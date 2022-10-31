@@ -128,7 +128,6 @@ export default class Main extends BaseController {
     this.personDialog.open();
   }
 
-
   public async addInPetsDialogPress() {
     if (!this.petsDialog) {
     this.petsDialog = <Dialog>await Fragment.load({
@@ -154,5 +153,15 @@ export default class Main extends BaseController {
     const listItem = event.getParameter("listItem") as ColumnListItem;
     const context = listItem.getBindingContext() as Context;
     context.delete();
+  }
+
+  public onPersonItemPress(event: UI5Event) {
+    // get parameter from oData
+    var oItem = event.getSource();
+    var oCtx = oItem.getBindingContext();
+    var personPath = oCtx.getPath().substr(1);
+    
+    // bypass parameters to the deatil page
+    this.navTo("detail", {personPath : personPath});
   }
 }
