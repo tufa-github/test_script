@@ -28,12 +28,6 @@ export default class Component extends UIComponent {
       operationMode: "Server",
     });
 	  this.setModel(oData);
-/*
-    const myModel = new JSONModel({
-      items: [{ name: "Item 1" }, { name: "Item 2" }, { name: "Item 3" }],
-    });
-    this.setModel(myModel, "myModel");
-*/
 
     var petsListInputModel = new JSONModel({
       recipient:{
@@ -51,21 +45,6 @@ export default class Component extends UIComponent {
       }
     });
     this.setModel(personListInputModel,"personListInputModel");
-
-    /*var myInputModel = new JSONModel({
-      recipient:{
-        name:"UI5"
-      }
-    });
-    this.setModel(myInputModel,"myInputModel");
-
-    var myTextAreaInputModel = new JSONModel({
-      recipient:{
-        name:"p36"
-      }
-    });
-    this.setModel(myTextAreaInputModel,"myTextAreaInputModel");
-    */
 
     // create the views based on the url/hash
     this.getRouter().initialize();
