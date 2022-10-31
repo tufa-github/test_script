@@ -2,61 +2,14 @@
     <Shell>
         <App>
             <Page title="The pets and their owners">
-                <!-->
-                <Link text="Link for UI5 Dokumentation" width="100%" href="https://sdk.openui5.org/api/sap.m.Link#controlProperties" />
-            -->
-
                 <VBox>
-                    <!-->
-                    <HBox>
-                        <items>
-                            <Input value="{myInputModel>/recipient/name}" fieldWidth="30%" description="Hello {myInputModel>/recipient/name}" submit="onSubmit" valueLiveUpdate="true" />
-                        </items>
-                    </HBox>
-
-                    <HBox>
-                        <items>
-                            <Button text="Start" type="Accept" icon="sap-icon://cursor-arrow" press="onButtonPress" />
-                        </items>
-
-                        <VBox>
-                            <items>
-                                <TextArea value="{myTextAreaInputModel>/recipient/name}" maxLength="2000" growingMaxLines="1" />
-                            </items>
-                        </VBox>
-                    </HBox>
-
-                -->
-
                     <items>
                         <Text text="" />
                     </items>
-
-                    <!-->
-                    <HBox>
-                        <VBox class="sapUiMediumMargin">
-                            <Label text="Name" />
-                            <Input value="{petsListInputModel>/recipient/name}" width="200px" />
-                            <Label text="Species" />
-                            <Input value="{petsListInputModel>/recipient/species}" width="200px" />
-                            
-                            <Button text="Add" type="Default" icon="sap-icon://add" press="pressAddInList" />
-                            
-                            
-                            <Button 
-                                text="Add in Pets List" 
-                                width="200px" 
-                                ariaHasPopup="Dialog" 
-                                press="addInPetsDialogPress"/>
-                                  
-                        </VBox>
-
-                    </HBox>
-<!-->
                     <IconTabBar id="idIconTabBarStretchContent" stretchContentHeight="true" backgroundDesign="Transparent" applyContentPadding="false" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
                         <items>
                             <IconTabFilter text="Persons" key="person">
-                                <List mode="Delete" delete="onDeletePress" growing="true" growingThreshold="6" items="{path:'/Persons'}" id="personList">
+                                <List mode="Delete" delete="onDeletePress" growing="true" growingThreshold="6" items="{/Persons}" id="personList">
                                     <headerToolbar>
                                         <OverflowToolbar width="100%">
                                             <Title text="The owner of the pets" />
@@ -66,7 +19,8 @@
                                         </OverflowToolbar>
                                     </headerToolbar>
                                     <items>
-                                        <StandardListItem title="{age}" description="{firstname} {lastname}" />
+                                        <!--<StandardListItem title="{firstname} {lastname} {age}" type="Navigation" press="onPersonItemPress"/>-->
+                                        <ObjectListItem title="{firstname} {lastname}" type="Navigation" press="onPersonItemPress"/>
                                     </items>
                                 </List>
                             </IconTabFilter>
@@ -87,7 +41,6 @@
                             </IconTabFilter>
                         </items>
                     </IconTabBar>
-                    
                 </VBox>
             </Page>
         </App>
